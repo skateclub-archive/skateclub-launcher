@@ -1,0 +1,117 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:skateclub.UI"
+        xmlns:UI="clr-namespace:skateclub.UI" xmlns:System="clr-namespace:System;assembly=System.Runtime" x:Class="skateclub.MainWindow"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="627" Width="1115" WindowStyle="None" ResizeMode="NoResize" AllowsTransparency="True" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen">
+
+    <Window.Resources>
+        <ControlTemplate TargetType="{x:Type CheckBox}" x:Key="MyCheckBoxTemplate">
+            <StackPanel Orientation="Horizontal">
+                <Path x:Name="Equis" 
+                      Stroke="Red" 
+                      StrokeThickness="2" 
+                      Height="17" Width="19" Stretch="None" 
+                      Margin="0,0,2,2"
+                      Opacity="1"
+                      Data="M3,10 L8,14 L16,6"
+                      />
+                <ContentPresenter Margin="4" HorizontalAlignment="Left" VerticalAlignment="Top" />
+            </StackPanel>
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsChecked" Value="true">
+                    <Setter TargetName="Equis" Property="Opacity" Value="1" />
+                </Trigger>
+                <Trigger Property="IsChecked" Value="false">
+                    <Setter TargetName="Equis" Property="Opacity" Value="0" />
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+    </Window.Resources>
+
+    <Window.Background>
+        <ImageBrush ImageSource="../Assets/client_background.png"/>
+    </Window.Background>
+
+    <Grid x:Name="mainGrid" Visibility="Visible">
+
+        <Rectangle x:Name="DragBar" HorizontalAlignment="Center" Height="32" VerticalAlignment="Top" Width="1115" MouseLeftButtonDown="DragBar_MouseLeftButtonDown">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="1,1" StartPoint="0,0">
+                    <GradientStop Color="#BF1E1E1E" Offset="1"/>
+                    <GradientStop Color="#4C000000"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+
+        <Button Content="X" Margin="1083,0,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Height="32" BorderBrush="{x:Null}" Foreground="White" Background="#00DDDDDD" Click="Button_Click_1">
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Background" Value="Transparent" />
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border x:Name="Border" Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#BF1E1E1E" TargetName="Border" />
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Style>
+        </Button>
+        <Button x:Name="Minimize" Content="-" HorizontalAlignment="Left" Margin="1051,0,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Height="32" Width="32" BorderBrush="{x:Null}" Foreground="White" Background="#00DDDDDD" Click="Minimize_Click">
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Background" Value="Transparent" />
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border x:Name="Border" Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#BF1E1E1E" TargetName="Border" />
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Style>
+        </Button>
+        <Button x:Name="SettingButton" HorizontalAlignment="Left" Margin="1019,0,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Height="32" Width="32" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="SettingButton_Click">
+
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Background" Value="Transparent" />
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border x:Name="Border" Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#BF1E1E1E" TargetName="Border" />
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Style>
+            <Image Source="..\Assets\icons8-settings-384.png" Width="20"/>
+
+        </Button>
+    </Grid>
+</Window>

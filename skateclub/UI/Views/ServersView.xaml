@@ -1,0 +1,161 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:UI.Views"
+             xmlns:UI="clr-namespace:skateclub.UI" x:Class="UI.Views.ServersView"
+             mc:Ignorable="d" 
+             d:DesignHeight="637" d:DesignWidth="1115">
+
+    <Grid>
+        <Rectangle HorizontalAlignment="Center" Height="476" Margin="0,136,0,0" VerticalAlignment="Top" Width="1077" Fill="#7F1E1E1E" Visibility="Visible"/>
+        <Label Content="Skateclub Servers" HorizontalAlignment="Center" Margin="0,136,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="White" FontFamily="Calibri" FontSize="18"/>
+        <Rectangle HorizontalAlignment="Center" Height="2" Margin="0,168,0,0" VerticalAlignment="Top" Width="1040" Fill="#7FFFFFFF"/>
+
+
+        <Button x:Name="Back" Content="Back" HorizontalAlignment="Left" Margin="975,100,0,0" VerticalAlignment="Top" Height="31" Width="120" Background="#FFFF214E" Foreground="White" BorderBrush="{x:Null}" FontFamily="Calibri" FontSize="22" Click="Back_Click">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="4"/>
+                </Style>
+            </Button.Resources>
+
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Background" Value="LightBlue" />
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border x:Name="Border" Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#b01030" TargetName="Border" />
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Style>
+        </Button>
+        <Button x:Name="Refresh" Content="Refresh" HorizontalAlignment="Left" Margin="38,0,0,31" VerticalAlignment="Bottom" Height="26" Width="120" Background="#FFFF214E" Foreground="White" BorderBrush="{x:Null}" FontFamily="Calibri" FontSize="16" Click="Refresh_Click">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="4"/>
+                </Style>
+            </Button.Resources>
+
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Background" Value="LightBlue" />
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border x:Name="Border" Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#b01030" TargetName="Border" />
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Style>
+        </Button>
+
+        <Rectangle HorizontalAlignment="Center" Height="2" Margin="0,558,0,0" VerticalAlignment="Top" Width="1040" Fill="#7FFFFFFF"/>
+        <TextBox x:Name="IPText" HorizontalAlignment="Left" TextWrapping="Wrap" Text="127.0.0.1" VerticalAlignment="Top" Width="169" Height="26" Background="#FF1E1E1E" Foreground="White" BorderBrush="{x:Null}" FontFamily="Calibri" FontSize="20" TextAlignment="Center" Margin="176,570,0,0" RenderTransformOrigin="0.5,0.743"/>
+        <Button x:Name="ConnectButton" Content="Connect" HorizontalAlignment="Left" Margin="350,570,0,0" VerticalAlignment="Top" Height="26" Width="138" Background="#FFFF214E" Foreground="White" BorderBrush="{x:Null}" FontFamily="Calibri" FontSize="16" Click="ConnectButton_Click">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="4"/>
+                </Style>
+            </Button.Resources>
+
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Background" Value="LightBlue" />
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border x:Name="Border" Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#b01030" TargetName="Border" />
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Style>
+        </Button>
+
+        <Button x:Name="HostServerButton" Content="Host Server" HorizontalAlignment="Right" Margin="0,0,142,29" VerticalAlignment="Bottom" Height="26" Width="130" Background="#FFFF214E" Foreground="White" BorderBrush="{x:Null}" FontFamily="Calibri" FontSize="16" Click="HostServerButton_Click">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="4"/>
+                </Style>
+            </Button.Resources>
+
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Background" Value="LightBlue" />
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border x:Name="Border" Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#b01030" TargetName="Border" />
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Style>
+        </Button>
+        <CheckBox x:Name="launchClientCheckbox" Content="Auto-connect client" HorizontalAlignment="Right" Margin="0,577,277,0" VerticalAlignment="Top" Foreground="White"/>
+        <Button x:Name="ListServerButton" IsEnabled="False" Content="List Server" HorizontalAlignment="Right" Margin="0,0,37,29" VerticalAlignment="Bottom" Height="26" Width="100" Background="#FFFF214E" Foreground="White" BorderBrush="{x:Null}" FontFamily="Calibri" FontSize="16" Click="ListServerButton_Click" RenderTransformOrigin="1,1">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="4"/>
+                </Style>
+            </Button.Resources>
+
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Background" Value="LightBlue" />
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border x:Name="Border" Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#b01030" TargetName="Border" />
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Style>
+        </Button>
+        <CheckBox x:Name="serverBrowserCheckbox" Content="Enable server browser (BETA, ENABLE AT YOUR OWN RISK)" HorizontalAlignment="Left" Margin="38,538,0,0" VerticalAlignment="Top" Foreground="White" Width="391" Visibility="Hidden"/>
+        <UI:UIServerList x:Name="ServerListView" HorizontalAlignment="Center" Margin="0,175,0,0" VerticalAlignment="Top" Height="358" Width="1040" RenderTransformOrigin="0.5,0.5"/>
+    </Grid>
+
+</UserControl>

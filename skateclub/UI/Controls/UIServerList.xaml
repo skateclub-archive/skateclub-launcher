@@ -1,0 +1,24 @@
+﻿<UserControl x:Class="skateclub.UI.UIServerList"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:skateclub.UI"
+             mc:Ignorable="d" 
+             d:DesignHeight="378" d:DesignWidth="1040">
+    <Grid>
+
+        <TextBox x:Name="serverSearch" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Background="#FF424242" BorderBrush="#FF7F7F7F" Foreground="White" Margin="155,0,0,0" Height="22"/>
+        <ComboBox x:Name="sortTypeBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150"/>
+        <Label x:Name="statusLabel" Content="No servers" HorizontalContentAlignment="Center" VerticalAlignment="Bottom" Foreground="White" Margin="0,25,0,0" FontSize="14"/>
+        <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Visible" Margin="0,27,0,0">
+            <ItemsControl x:Name="items">
+                <ItemsControl.ItemContainerStyle>
+                    <Style>
+                        <Setter Property="FrameworkElement.Margin" Value="2"/>
+                    </Style>
+                </ItemsControl.ItemContainerStyle>
+            </ItemsControl>
+        </ScrollViewer>
+    </Grid>
+</UserControl>

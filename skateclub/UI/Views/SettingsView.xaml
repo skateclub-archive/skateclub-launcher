@@ -1,0 +1,98 @@
+﻿<UserControl x:Class="UI.Views.SettingsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:UI.Views" xmlns:System="clr-namespace:System;assembly=netstandard"
+             mc:Ignorable="d" 
+             d:DesignHeight="637" d:DesignWidth="1115">
+
+    <Grid>
+        <Rectangle HorizontalAlignment="Center" Height="270" VerticalAlignment="Center" Width="1115" Fill="#7F1E1E1E" Visibility="Visible"/>
+        <Label Content="Settings" HorizontalAlignment="Center" Margin="0,181,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="White" FontFamily="Calibri" FontSize="18"/>
+        <Rectangle HorizontalAlignment="Center" Height="2" Margin="0,213,0,0" VerticalAlignment="Top" Width="86" Fill="#7FFFFFFF"/>
+        <TextBox x:Name="PlayerNameSettingsText" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="181" Height="26" Background="#FF1E1E1E" Foreground="White" BorderBrush="{x:Null}" FontFamily="Calibri" FontSize="17" TextAlignment="Center" Margin="218,269,0,0"/>
+        <Button x:Name="SaveSettings" Content="Save Settings" HorizontalAlignment="Center" Margin="0,413,0,0" VerticalAlignment="Top" Height="23" Width="400" Foreground="White" BorderBrush="{x:Null}" FontFamily="Calibri" FontSize="16" Background="#FFFF214E" RenderTransformOrigin="0.505,1.783" Click="SaveSettings_Click">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="7"/>
+                </Style>
+            </Button.Resources>
+
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Background" Value="LightBlue" />
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border x:Name="Border" Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#b01030" TargetName="Border" />
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Style>
+        </Button>
+        <CheckBox x:Name="ShadowFix" Content="Shadow Fix (DX11)" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" Margin="141,300,0,0" Background="#FFFF214E" BorderBrush="#FF1E1E1E"/>
+        <Label Content="Player Name" HorizontalAlignment="Left" Margin="141,270,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="White" FontFamily="Calibri"/>
+        <CheckBox x:Name="HideWatermark" Content="Hide Watermark" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" Margin="141,320,0,0" Background="#FFFF214E" BorderBrush="#FF1E1E1E" IsChecked="True"/>
+        <CheckBox x:Name="EnableCosmetic" Content="Enable Cosmetics" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" Margin="428,288,0,0" Background="#FFFF214E" BorderBrush="#FF1E1E1E" IsChecked="True"/>
+        <ComboBox x:Name="levelPicker" Visibility="Hidden"  HorizontalAlignment="Center" Margin="0,369,0,0" VerticalAlignment="Top" Width="298" BorderBrush="#FF676767" SelectedIndex="0">
+            <ComboBox.Background>
+                <LinearGradientBrush EndPoint="0,1">
+                    <GradientStop Color="#FF444444" Offset="0.003"/>
+                    <GradientStop Color="#FF484848" Offset="1"/>
+                </LinearGradientBrush>
+            </ComboBox.Background>
+            <System:String>ff_level_PrivatePark</System:String>
+            <System:String>ff_level_root</System:String>
+        </ComboBox>
+        <CheckBox x:Name="DebugRender" Content="Debug (Solo only)" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" Margin="428,268,0,0" Background="#FFFF214E" BorderBrush="#FF1E1E1E" IsChecked="False"/>
+        <CheckBox x:Name="RemoveClothes" Content="Remove Clothes" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" Margin="428,329,0,0" Background="#FFFF214E" BorderBrush="#FF1E1E1E" IsChecked="False"/>
+        <CheckBox x:Name="ExperimentalMode" Visibility="Visible" Content="Experimental Mode (New tricks, etc.)" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" Margin="428,308,0,0" Background="#FFFF214E" BorderBrush="#FF1E1E1E" IsChecked="True"/>
+        <Slider x:Name="TruckTightness" HorizontalAlignment="Center" Margin="0,369,0,0" VerticalAlignment="Top" Width="258" Maximum="3" Minimum="-4" ValueChanged="TruckTightness_ValueChanged" SmallChange="0.01"/>
+        <Label Content="Truck Tightness:" HorizontalAlignment="Left" Margin="428,349,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="White" FontFamily="Calibri"/>
+        <Label x:Name="TruckTightnessValue" Content="Normal (0)" HorizontalAlignment="Left" Margin="516,349,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="White" FontFamily="Calibri"/>
+        <Label Content="General" HorizontalAlignment="Left" Margin="141,234,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="White" FontFamily="Calibri" FontSize="14"/>
+        <Rectangle HorizontalAlignment="Left" Height="2" Margin="141,261,0,0" VerticalAlignment="Top" Width="258" Fill="#7FFFFFFF"/>
+        <CheckBox x:Name="SkipCutscene" Content="Skip Intro Cutscene" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" Margin="141,340,0,0" Background="#FFFF214E" BorderBrush="#FF1E1E1E" IsChecked="True"/>
+        <CheckBox x:Name="Fullscreen" Content="Fullscreen" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" Margin="141,360,0,0" Background="#FFFF214E" BorderBrush="#FF1E1E1E" IsChecked="True"/>
+        <Label Content="In-game" HorizontalAlignment="Left" Margin="428,234,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="White" FontFamily="Calibri" FontSize="14"/>
+        <Rectangle HorizontalAlignment="Center" Height="2" Margin="0,261,0,0" VerticalAlignment="Top" Width="258" Fill="#7FFFFFFF"/>
+        <Label Content="Graphics Settings" HorizontalAlignment="Left" Margin="712,234,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="White" FontFamily="Calibri" FontSize="14"/>
+        <Rectangle HorizontalAlignment="Left" Height="2" Margin="712,261,0,0" VerticalAlignment="Top" Width="258" Fill="#7FFFFFFF"/>
+        <ComboBox x:Name="AOCombo" HorizontalAlignment="Left" Margin="817,270,0,0" VerticalAlignment="Top" Width="153" SelectedIndex="0">
+            <System:String>HBAO</System:String>
+            <System:String>SSAO</System:String>
+            <System:String>AdvancedAO</System:String>
+            <System:String>RtAO</System:String>
+        </ComboBox>
+        <Label Content="Ambient Occlusion:" HorizontalAlignment="Left" Margin="712,268,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="White" FontFamily="Calibri"/>
+        <Label Content="Anti-Aliasing:" HorizontalAlignment="Left" Margin="712,296,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="White" FontFamily="Calibri"/>
+        <ComboBox x:Name="AACombo" HorizontalAlignment="Left" Margin="817,297,0,0" VerticalAlignment="Top" Width="153" SelectedIndex="0">
+            <System:String>None</System:String>
+            <System:String>FxaaLow</System:String>
+            <System:String>FxaaMedium</System:String>
+            <System:String>FxaaHigh</System:String>
+            <System:String>FxaaCompute</System:String>
+            <System:String>FxaaComputeExtreme</System:String>
+            <System:String>Smaa1x</System:String>
+            <System:String>TemporalAA</System:String>
+        </ComboBox>
+        <Label Content="Shader Quality:" HorizontalAlignment="Left" Margin="712,323,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="White" FontFamily="Calibri"/>
+        <ComboBox x:Name="ShaderQualityCombo" HorizontalAlignment="Left" Margin="817,324,0,0" VerticalAlignment="Top" Width="153" SelectedIndex="0">
+            <System:String>Ultra</System:String>
+            <System:String>High</System:String>
+            <System:String>Medium</System:String>
+            <System:String>Low</System:String>
+        </ComboBox>
+
+    </Grid>
+
+</UserControl>
